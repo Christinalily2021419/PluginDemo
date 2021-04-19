@@ -1,0 +1,28 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gameassist.plugin.mod.demo"
+    android:versionCode="1"
+    android:versionName="1.0.1">
+
+    <uses-sdk
+        android:minSdkVersion="5"
+        android:targetSdkVersion="17" />
+    <application
+        android:icon="@android:drawable/sym_def_app_icon"
+        android:label="插件demo">
+        <meta-data
+            android:name="Entry"
+            android:value="com.gameassist.plugin.demo.PluginEntry" />
+        <meta-data
+            android:name="Target0"
+            android:value="com.example.demo" />
+        <meta-data
+            android:name="Version0"
+            android:value="*" />
+        <meta-data
+            android:name="Label"
+            android:value="插件demo" />
+        <meta-data
+            android:name="Description"
+            android:value="插件demo" />
+    </application>
+</manifest>

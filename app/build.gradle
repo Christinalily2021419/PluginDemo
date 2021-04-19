@@ -1,0 +1,47 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        SignConfig {
+            keyAlias 'demo'
+            keyPassword '123456'
+            storeFile file('demo.jks')
+            storePassword '123456'
+        }
+    }
+    compileSdkVersion 23
+    buildToolsVersion '26.0.2'
+    defaultConfig {
+        applicationId "com.gameassist.plugin.mod.demo"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0.1"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles 'proguard-rules.pro'
+            signingConfig signingConfigs.SignConfig
+        }
+    }
+
+    lintOptions {
+        disable 'MissingTranslation'
+        abortOnError false
+    }
+
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            outputFileName = "plugin-${buildType.name}-demo.apk"
+        }
+    }
+}
+
+
+
+dependencies {
+    compile project(':jni')
+    provided files('libs/pluginInterface.jar')
+}
